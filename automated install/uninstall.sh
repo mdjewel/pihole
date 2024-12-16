@@ -45,11 +45,7 @@ source "${setupVars}"
 package_manager_detect
 
 # Uninstall packages used by the Pi-hole
-DEPS=("${INSTALLER_DEPS[@]}" "${PIHOLE_DEPS[@]}" "${OS_CHECK_DEPS[@]}")
-if [[ "${INSTALL_WEB_SERVER}" == true ]]; then
-    # Install the Web dependencies
-    DEPS+=("${PIHOLE_WEB_DEPS[@]}")
-fi
+DEPS=("${INSTALLER_COMMON_DEPS[@]}" "${PIHOLE_COMMON_DEPS[@]}" "${OS_CHECK_COMMON_DEPS[@]}" "${INSTALLER_DEPS[@]}" "${PIHOLE_DEPS[@]}" "${OS_CHECK_DEPS[@]}")
 
 # Compatibility
 if [ -x "$(command -v apt-get)" ]; then
